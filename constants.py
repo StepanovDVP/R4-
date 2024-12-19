@@ -9,9 +9,17 @@ class RobotFormMessages:
     ERROR_INVALID_VERSION = 'Версия должна содержать только буквы и цифры.'
 
 
+REQUEST_WAIT_LIST = 'Ваш запрос добавлен в лист ожидания.'
+ROBOT_EXIST = 'Робот в наличии! Поторопитесь его купить!'
+
+EXM_EMAIL = 'star_wars@gmail.com'
+EXM_MODEL = 'Модель (например, R2)'
+EXM_VERSION = 'Версия (например, D2)'
+
 MAX_LEN_VERSION = 2
 MAX_LEN_MODEL = 2
 MAX_LEN_SERIAL = 5
+MAX_LEN_EMAIL = 254
 
 PATTERN_CHECK = r'^[a-zA-Z0-9]+$'
 
