@@ -30,3 +30,5 @@ HEADERS_EXCEL = [
     MODEL, VERSION, COUNT_LAST_WEEK
 ]
 CONTENT_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+
+ERROR_ROBOTS_LAST_WEEK = 'Нет данных для отображения'

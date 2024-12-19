@@ -3,7 +3,7 @@ from collections import defaultdict
 import openpyxl
 from django.db.models import Count
 
-from constants import HEADERS_EXCEL
+from constants import HEADERS_EXCEL, ERROR_ROBOTS_LAST_WEEK
 from .models import Robot
 
 
@@ -29,14 +29,18 @@ def fetch_robot_data(last_week):
 def create_excel_file(models_data):
     """Создание Excel-файла с данными."""
     wb = openpyxl.Workbook()
-
-    for model, versions in models_data.items():
-        ws = wb.create_sheet(title=model)
-        ws.append(HEADERS_EXCEL)
-        for version, count in versions:
-            ws.append([model, version, count])
-
     if 'Sheet' in wb.sheetnames:
         wb.remove(wb['Sheet'])
+
+    if not models_data:
+        ws = wb.create_sheet(title='No Data')
+        ws.append([ERROR_ROBOTS_LAST_WEEK])
+
+    else:
+        for model, versions in models_data.items():
+            ws = wb.create_sheet(title=model)
+            ws.append(HEADERS_EXCEL)
+            for version, count in versions:
+                ws.append([model, version, count])
 
     return wb
