@@ -7,4 +7,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('robots.urls')),
     path('download_report/', generate_report, name='download_report'),
+    path('', include('orders.urls'))
 ]
